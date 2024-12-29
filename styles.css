@@ -1,0 +1,374 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #3E4E3B;
+    background-color: #f4edda;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(244, 237, 218, 0.95);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(62, 78, 59, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3E4E3B;
+}
+
+.logo svg {
+    vertical-align: middle;
+}
+
+.logo img {
+    height: 60px; /* Adjust as needed */
+    width: auto;
+}
+
+.nav-links a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #3E4E3B;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: rgba(62, 78, 59, 0.7);
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* Hero Section */
+header {
+    position: relative;
+    height: 100vh;
+    background-image: url('assets/image/main/group.jpg');  /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Black overlay with 50% opacity */
+}
+
+.hero {
+    position: relative;
+    z-index: 1;  /* Places content above the overlay */
+    color: white; /* Makes text white for better visibility */
+    text-align: center;
+    padding: 2rem;
+    
+    /* Centers the content vertically and horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #f4edda;
+}
+
+.hero p {
+    color: #f4edda;  /* White text */
+    /* Alternative options: */
+    /* color: #f5f5f5; */ /* Off-white */
+    /* color: #FFD700; */ /* Gold */
+    /* color: #00ffff; */ /* Cyan */
+    
+    /* Optional: add some additional styling */
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Adds shadow for better readability */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    background: #f4edda;
+    color: #3E4E3B;
+    text-decoration: none;
+    border: 2px solid #3E4E3B;
+    border-radius: 5px;
+    transition: transform 0.3s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background: #3E4E3B;
+    color: #f4edda;
+}
+
+/* Portfolio Section */
+section {
+    padding: 5rem 2rem;
+    background: #f4edda;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #3E4E3B;
+    position: relative;
+}
+
+h2:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #3E4E3B;
+    margin: 10px auto;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+.slide-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    object-fit: cover;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(62, 78, 59, 0.9);
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover .overlay {
+    transform: translateY(0);
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(62, 78, 59, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.about-content img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.about-text h3 {
+    color: #3E4E3B;
+    margin-bottom: 1rem;
+}
+
+/* Contact Section */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #3E4E3B;
+    border-radius: 5px;
+    background: #f4edda;
+    color: #3E4E3B;
+}
+
+.contact-form textarea {
+    height: 150px;
+}
+
+.contact-form button {
+    padding: 1rem;
+    background: #3E4E3B;
+    color: #f4edda;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: rgba(62, 78, 59, 0.9);
+}
+
+/* Footer */
+footer {
+    background: #3E4E3B;
+    color: #f4edda;
+    padding: 2rem;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #f4edda;
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: rgba(244, 237, 218, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        background: rgba(244, 237, 218, 0.98);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        margin: 1rem 0;
+    }
+
+    .mobile-menu i {
+        color: #3E4E3B;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+} 
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+}
+
+.contact-info {
+    text-align: center;
+    padding: 40px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+}
